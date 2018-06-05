@@ -1,2 +1,6 @@
 HELLO EVERYONE  
+<<<<<<< HEAD
 1
+=======
+dfdfdfsd
+>>>>>>> origin/master
