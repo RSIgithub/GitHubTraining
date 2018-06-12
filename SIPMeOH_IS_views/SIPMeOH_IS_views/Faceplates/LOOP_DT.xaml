@@ -1,0 +1,455 @@
+﻿<RSIFacePlate
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	Title="PID Details"
+	Background="LightGray"
+	x:Class="SIPMeOH_IS_views.Faceplates.LOOP_DT">
+    <!--  Copy/Paste this grid content in order to create a custom Faceplate  -->
+    <RSIGrid Background="LightGray" Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <!--  Header  -->
+        <DeltaV_Title x:Name="HeaderPart" Grid.ColumnSpan="3"/>
+
+        <!--  Pin  -->
+        <PinFaceplateControl HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <!--  Limits Part  -->
+        <RSIGrid x:Name="LimitsPart" Grid.Column="0" Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="17"/>
+                <RowDefinition Height="2"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!--  LIMITS Text  -->
+            <TextBlock Grid.Row="0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                       FontFamily="Arial"
+                       FontWeight="Bold"
+                       Foreground="#FFFFFF"
+                       Text="Limits">
+                <TextBlock.Effect>
+                    <DropShadowEffect BlurRadius="0"
+                                      Direction="-24"
+                                      Opacity="1"
+                                      ShadowDepth="2"
+                                      Color="Black" />
+                </TextBlock.Effect>
+            </TextBlock>
+
+            <!--  LIMITS Parameters  -->
+            <RSIStackPanel x:Name="Limits" Grid.Row="2"
+                           Width="202"
+                            HorizontalAlignment="Left">
+
+                <!--  HI HI Lim  -->
+                <DeltaV_AlarmLimit>
+                    <DeltaV_AlarmLimit.Parameters>
+                        <Param Name="$VALUE" Value="$TAGNAME.HI_HI_LIM:#.#" />
+                        <Param Name="$DESCRIPTION" Value="Hi Hi Lim" />
+                    </DeltaV_AlarmLimit.Parameters>
+                </DeltaV_AlarmLimit>
+
+                <!--  HI Lim  -->
+                <DeltaV_AlarmLimit >
+                    <DeltaV_AlarmLimit.Parameters>
+                        <Param Name="$VALUE" Value="$TAGNAME.HI_LIM:#.#" />
+                        <Param Name="$DESCRIPTION" Value="Hi Lim" />
+                    </DeltaV_AlarmLimit.Parameters>
+                </DeltaV_AlarmLimit>
+
+                <!--  Dev Hi Lim  -->
+                <DeltaV_AlarmLimit >
+                    <DeltaV_AlarmLimit.Parameters>
+                        <Param Name="$VALUE" Value="$TAGNAME.DV_HI_LIM:#.#" />
+                        <Param Name="$DESCRIPTION" Value="Dev Hi Lim" />
+                    </DeltaV_AlarmLimit.Parameters>
+                </DeltaV_AlarmLimit>
+
+                <!--  Dev Lo Lim  -->
+                <DeltaV_AlarmLimit >
+                    <DeltaV_AlarmLimit.Parameters>
+                        <Param Name="$VALUE" Value="$TAGNAME.DV_LO_LIM:#.#" />
+                        <Param Name="$DESCRIPTION" Value="Dev Lo Lim" />
+                    </DeltaV_AlarmLimit.Parameters>
+                </DeltaV_AlarmLimit>
+
+                <!--  LO Lim  -->
+                <DeltaV_AlarmLimit >
+                    <DeltaV_AlarmLimit.Parameters>
+                        <Param Name="$VALUE" Value="$TAGNAME.LO_LIM:#.#" />
+                        <Param Name="$DESCRIPTION" Value="Lo Lim" />
+                    </DeltaV_AlarmLimit.Parameters>
+                </DeltaV_AlarmLimit>
+
+                <!--  LO LO Lim  -->
+                <DeltaV_AlarmLimit >
+                    <DeltaV_AlarmLimit.Parameters>
+                        <Param Name="$VALUE" Value="$TAGNAME.LO_LO_LIM:#.#" />
+                        <Param Name="$DESCRIPTION" Value="Lo Lo Lim" />
+                    </DeltaV_AlarmLimit.Parameters>
+                </DeltaV_AlarmLimit>
+
+                <!--  Out Hi Lim  -->
+                <DeltaV_AlarmLimit >
+                    <DeltaV_AlarmLimit.Parameters>
+                        <Param Name="$VALUE" Value="$TAGNAME.OUT_HI_LIM:#.#" />
+                        <Param Name="$DESCRIPTION" Value="Out Hi Lim" />
+                    </DeltaV_AlarmLimit.Parameters>
+                </DeltaV_AlarmLimit>
+
+                <!--  Out Lo Lim  -->
+                <DeltaV_AlarmLimit >
+                    <DeltaV_AlarmLimit.Parameters>
+                        <Param Name="$VALUE" Value="$TAGNAME.OUT_LO_LIM:#.#" />
+                        <Param Name="$DESCRIPTION" Value="Out Lo Lim" />
+                    </DeltaV_AlarmLimit.Parameters>
+                </DeltaV_AlarmLimit>
+
+                <!--  ARW Hi Lim  -->
+                <DeltaV_AlarmLimit >
+                    <DeltaV_AlarmLimit.Parameters>
+                        <Param Name="$VALUE" Value="$TAGNAME.ARW_HI_LIM:#.#" />
+                        <Param Name="$DESCRIPTION" Value="ARW Hi Lim" />
+                    </DeltaV_AlarmLimit.Parameters>
+                </DeltaV_AlarmLimit>
+
+                <!--  ARW Lo Lim  -->
+                <DeltaV_AlarmLimit >
+                    <DeltaV_AlarmLimit.Parameters>
+                        <Param Name="$VALUE" Value="$TAGNAME.ARW_LO_LIM" />
+                        <Param Name="$DESCRIPTION" Value="ARW Lo Lim" />
+                    </DeltaV_AlarmLimit.Parameters>
+                </DeltaV_AlarmLimit>
+
+                <!--  SP Hi Lim  -->
+                <DeltaV_AlarmLimit >
+                    <DeltaV_AlarmLimit.Parameters>
+                        <Param Name="$VALUE" Value="$TAGNAME.SP_HI_LIM:#.#" />
+                        <Param Name="$DESCRIPTION" Value="SP Hi Lim" />
+                    </DeltaV_AlarmLimit.Parameters>
+                </DeltaV_AlarmLimit>
+
+                <!--  SP Lo Lim  -->
+                <DeltaV_AlarmLimit >
+                    <DeltaV_AlarmLimit.Parameters>
+                        <Param Name="$VALUE" Value="$TAGNAME.SP_LO_LIM" />
+                        <Param Name="$DESCRIPTION" Value="SP Lo Lim" />
+                    </DeltaV_AlarmLimit.Parameters>
+                </DeltaV_AlarmLimit>
+
+                <!--  Alm Hysteresis  -->
+                <DeltaV_AlarmLimit >
+                    <DeltaV_AlarmLimit.Parameters>
+                        <Param Name="$VALUE" Value="$TAGNAME.ALARM_HYS:#.#" />
+                        <Param Name="$DESCRIPTION" Value="Alm Hysteresis" />
+                        <Param Name="$PARAMEXTENSION" Value="%" />
+                    </DeltaV_AlarmLimit.Parameters>
+                </DeltaV_AlarmLimit>
+            </RSIStackPanel>
+
+
+            <!--
+                    <DeltaV_AlarmLimit Canvas.Left="9"
+                                 Canvas.Top="352"
+                                 Height="19">
+                <DeltaV_AlarmLimit.Parameters>
+                    <Param Name="$VALUE" Value="$TAGNAME.Rate" />
+                    <Param Name="$DESCRIPTION" Value="Rate" />
+                    <Param Name="$PARAM2" Value="s" />
+                </DeltaV_AlarmLimit.Parameters>
+            </DeltaV_AlarmLimit>
+
+            <DeltaV_AlarmLimit Canvas.Left="9"
+                                 Canvas.Top="333"
+                                 Height="20">
+                <DeltaV_AlarmLimit.Parameters>
+                    <Param Name="$VALUE" Value="$TAGNAME.Reset" />
+                    <Param Name="$DESCRIPTION" Value="Reset" />
+                </DeltaV_AlarmLimit.Parameters>
+            </DeltaV_AlarmLimit>
+
+            <DeltaV_AlarmLimit Canvas.Left="9"
+                                 Canvas.Top="315"
+                                 Height="19">
+                <DeltaV_AlarmLimit.Parameters>
+                    <Param Name="$VALUE" Value="$TAGNAME.GAIN" />
+                    <Param Name="$DESCRIPTION" Value="GAIN" />
+                </DeltaV_AlarmLimit.Parameters>
+            </DeltaV_AlarmLimit>
+
+        -->
+        </RSIGrid>
+
+        <!--  Tuning Part  -->
+        <RSIGrid x:Name="TuningPart" Grid.Column="2" Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="17"/>
+                <RowDefinition Height="2"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!--  Tuning Text  -->
+            <TextBlock Grid.Row="0"
+                    VerticalAlignment="Center"
+                HorizontalAlignment="Left"
+                       FontFamily="Arial"
+                       FontWeight="Bold"
+                       Foreground="#FFFFFF"
+                       Text="Tuning">
+                <TextBlock.Effect>
+                    <DropShadowEffect BlurRadius="0"
+                                      Direction="-24"
+                                      Opacity="1"
+                                      ShadowDepth="2"
+                                      Color="Black" />
+                </TextBlock.Effect>
+            </TextBlock>
+
+            <!--  Tunings   -->
+            <RSIStackPanel x:Name="Tunings" Grid.Row="2"
+                           HorizontalAlignment="Left"
+        	               Width="195">
+
+                <!--  Gain  -->
+                <DeltaV_AlarmLimit>
+                    <DeltaV_AlarmLimit.Parameters>
+                        <Param Name="$TEXTCOLOR" Value="Magenta" />
+                        <Param Name="$VALUE" Value="$TAGNAME.GAIN:#.##" />
+                        <Param Name="$DESCRIPTION" Value="Gain" />
+                    </DeltaV_AlarmLimit.Parameters>
+                </DeltaV_AlarmLimit>
+
+                <!--  Reset -->
+                <DeltaV_AlarmLimit >
+                    <DeltaV_AlarmLimit.Parameters>
+                        <Param Name="$TEXTCOLOR" Value="Magenta" />
+                        <Param Name="$VALUE" Value="$TAGNAME.Reset:#.#" />
+                        <Param Name="$DESCRIPTION" Value="Reset" />
+                        <Param Name="$PARAMEXTENSION" Value="s" />
+                    </DeltaV_AlarmLimit.Parameters>
+                </DeltaV_AlarmLimit>
+
+                <!--  Rate  -->
+                <DeltaV_AlarmLimit >
+                    <DeltaV_AlarmLimit.Parameters>
+                        <Param Name="$TEXTCOLOR" Value="Magenta" />
+                        <Param Name="$VALUE" Value="$TAGNAME.Rate:#.#" />
+                        <Param Name="$DESCRIPTION" Value="Rate" />
+                        <Param Name="$PARAMEXTENSION" Value="s" />
+                    </DeltaV_AlarmLimit.Parameters>
+                </DeltaV_AlarmLimit>
+
+                <!-- PV Filter TC  -->
+                <DeltaV_AlarmLimit >
+                    <DeltaV_AlarmLimit.Parameters>
+                        <Param Name="$TEXTCOLOR" Value="Magenta" />
+                        <Param Name="$VALUE" Value="$TAGNAME.PV_FTIME:#.#" />
+                        <Param Name="$DESCRIPTION" Value="PV Filter TC" />
+                        <Param Name="$PARAMEXTENSION" Value="s" />
+                    </DeltaV_AlarmLimit.Parameters>
+                </DeltaV_AlarmLimit>
+
+                <!--  SP Filter TC  -->
+                <DeltaV_AlarmLimit >
+                    <DeltaV_AlarmLimit.Parameters>
+                        <Param Name="$TEXTCOLOR" Value="Magenta" />
+                        <Param Name="$VALUE" Value="$TAGNAME.SP_FTIME:#.#" />
+                        <Param Name="$DESCRIPTION" Value="SP Filter TC" />
+                        <Param Name="$PARAMEXTENSION" Value="s" />
+                    </DeltaV_AlarmLimit.Parameters>
+                </DeltaV_AlarmLimit>
+
+                <!--  SP Rate Dn  -->
+                <DeltaV_AlarmLimit >
+                    <DeltaV_AlarmLimit.Parameters>
+                        <Param Name="$TEXTCOLOR" Value="Magenta" />
+                        <Param Name="$VALUE" Value="$TAGNAME.SP_RATE_DN:#.#" />
+                        <Param Name="$DESCRIPTION" Value="SP Rate Dn" />
+                        <Param Name="$PARAMEXTENSION" Value="EU/s" />
+                    </DeltaV_AlarmLimit.Parameters>
+                </DeltaV_AlarmLimit>
+
+                <!--  SP Rate Up  -->
+                <DeltaV_AlarmLimit >
+                    <DeltaV_AlarmLimit.Parameters>
+                        <Param Name="$TEXTCOLOR" Value="Magenta" />
+                        <Param Name="$VALUE" Value="$TAGNAME.SP_RATE_UP:#.#" />
+                        <Param Name="$DESCRIPTION" Value="SP Rate Up" />
+                        <Param Name="$PARAMEXTENSION" Value="EU/s" />
+                    </DeltaV_AlarmLimit.Parameters>
+                </DeltaV_AlarmLimit>
+
+                <!--  BETA  -->
+                <DeltaV_AlarmLimit >
+                    <DeltaV_AlarmLimit.Parameters>
+                        <Param Name="$TEXTCOLOR" Value="Magenta" />
+                        <Param Name="$VALUE" Value="$TAGNAME.BETA:#.#" />
+                        <Param Name="$DESCRIPTION" Value="Beta" />
+                    </DeltaV_AlarmLimit.Parameters>
+                </DeltaV_AlarmLimit>
+
+                <!--  Gamma  -->
+                <DeltaV_AlarmLimit >
+                    <DeltaV_AlarmLimit.Parameters>
+                        <Param Name="$TEXTCOLOR" Value="Magenta" />
+                        <Param Name="$VALUE" Value="$TAGNAME.GAMMA:#.#" />
+                        <Param Name="$DESCRIPTION" Value="Gamma" />
+                    </DeltaV_AlarmLimit.Parameters>
+                </DeltaV_AlarmLimit>
+
+                <!--  IDEADBAND  -->
+                <DeltaV_AlarmLimit >
+                    <DeltaV_AlarmLimit.Parameters>
+                        <Param Name="$TEXTCOLOR" Value="Magenta" />
+                        <Param Name="$VALUE" Value="$TAGNAME.IDEADBAND" />
+                        <Param Name="$DESCRIPTION" Value="I Deadband" />
+                    </DeltaV_AlarmLimit.Parameters>
+                </DeltaV_AlarmLimit>
+
+                <!--  FF gain  -->
+                <DeltaV_AlarmLimit >
+                    <DeltaV_AlarmLimit.Parameters>
+                        <Param Name="$TEXTCOLOR" Value="Magenta" />
+                        <Param Name="$VALUE" Value="$TAGNAME.FF_GAIN" />
+                        <Param Name="$DESCRIPTION" Value="FF Gain" />
+                    </DeltaV_AlarmLimit.Parameters>
+                    <DeltaV_AlarmLimit.Animations>
+                        <Animation Condition="$TAGNAME.FF_ENABLE = 0">
+                            <Invisible/>
+                        </Animation>
+                    </DeltaV_AlarmLimit.Animations>
+                </DeltaV_AlarmLimit>
+
+            </RSIStackPanel>
+
+        </RSIGrid>
+
+        <!--  Alarms Part  -->
+        <RSIGrid x:Name="AlarmsPart"  Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="4">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="17"/>
+                <RowDefinition Height="2"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!--  Alarms Text  -->
+            <RSIGrid x:Name="AlarmsHeader" Grid.Row="0"
+                     HorizontalAlignment="Left">
+                <RSIGrid.ColumnDefinitions>
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="2" />
+                    <ColumnDefinition Width="160" />
+                    <ColumnDefinition Width="2" />
+                    <ColumnDefinition Width="30" />
+                    <!--<ColumnDefinition Width="5" />
+                    <ColumnDefinition Width="30" />-->
+                </RSIGrid.ColumnDefinitions>
+                <TextBlock Grid.Column="0"
+                            VerticalAlignment="Center"
+                               FontFamily="Arial"
+                               FontWeight="Bold"
+                               Foreground="#FFFFFF"
+                               Text="Alarms">
+                    <TextBlock.Effect>
+                        <DropShadowEffect BlurRadius="0"
+                                              Direction="-24"
+                                              Opacity="1"
+                                              ShadowDepth="2"
+                                              Color="Black" />
+                    </TextBlock.Effect>
+                </TextBlock>
+                <RSIText Grid.Column="2"
+                     HorizontalContentAlignment="Left"
+                     FontFamily="Arial"
+                     FontWeight="Bold"
+                     Foreground="#000000"
+                     Text="Priority" />
+                <RSIText Grid.Column="4"                     
+                     HorizontalContentAlignment="Center"
+                     FontFamily="Arial"
+                     FontWeight="Bold"
+                     Foreground="#000000"
+                     Text="Enab" />
+                <!--<RSIText Grid.Column="6"
+                     HorizontalContentAlignment="Center"
+                     FontFamily="Arial"
+                     FontWeight="Bold"
+                     Foreground="#000000"
+                     Text="Supp" />-->
+            </RSIGrid>
+
+            <!--  Alarms  -->
+            <RSIStackPanel x:Name="Alarms" Grid.Row="2" HorizontalAlignment="Left">
+
+                <DeltaV_AlarmPriorityTick >
+                    <DeltaV_AlarmPriorityTick.Parameters>
+                        <Param Name="$ALARMPATH" Value="$TAGNAME.PV.Alarms[HI_HI_ALM]" />
+                        <Param Name="$DESCRIPTION" Value="Hi Hi" />
+                    </DeltaV_AlarmPriorityTick.Parameters>
+                </DeltaV_AlarmPriorityTick>
+
+                <DeltaV_AlarmPriorityTick >
+                    <DeltaV_AlarmPriorityTick.Parameters>
+                        <Param Name="$ALARMPATH" Value="$TAGNAME.PV.Alarms[HI_ALM]" />
+                        <Param Name="$DESCRIPTION" Value="Hi" />
+                    </DeltaV_AlarmPriorityTick.Parameters>
+                </DeltaV_AlarmPriorityTick>
+
+                <DeltaV_AlarmPriorityTick >
+                    <DeltaV_AlarmPriorityTick.Parameters>
+                        <Param Name="$ALARMPATH" Value="$TAGNAME.STDEV.Alarms[DV_HI_ALM]" />
+                        <Param Name="$DESCRIPTION" Value="Dev Hi" />
+                    </DeltaV_AlarmPriorityTick.Parameters>
+                </DeltaV_AlarmPriorityTick>
+
+                <DeltaV_AlarmPriorityTick >
+                    <DeltaV_AlarmPriorityTick.Parameters>
+                        <Param Name="$ALARMPATH" Value="$TAGNAME.STDEV.Alarms[DV_LO_ALM]" />
+                        <Param Name="$DESCRIPTION" Value="Dev Lo" />
+                    </DeltaV_AlarmPriorityTick.Parameters>
+                </DeltaV_AlarmPriorityTick>
+
+                <DeltaV_AlarmPriorityTick >
+                    <DeltaV_AlarmPriorityTick.Parameters>
+                        <Param Name="$ALARMPATH" Value="$TAGNAME.PV.Alarms[LO_ALM]" />
+                        <Param Name="$DESCRIPTION" Value="Lo" />
+                    </DeltaV_AlarmPriorityTick.Parameters>
+                </DeltaV_AlarmPriorityTick>
+
+                <DeltaV_AlarmPriorityTick >
+                    <DeltaV_AlarmPriorityTick.Parameters>
+                        <Param Name="$ALARMPATH" Value="$TAGNAME.PV.Alarms[LO_LO_ALM]" />
+                        <Param Name="$DESCRIPTION" Value="Lo Lo" />
+                    </DeltaV_AlarmPriorityTick.Parameters>
+                </DeltaV_AlarmPriorityTick>
+
+                <DeltaV_AlarmPriorityTick IsEnabled="False">
+                    <DeltaV_AlarmPriorityTick.Parameters>
+                        <Param Name="$ALARMPATH" Value="" />
+                        <Param Name="$DESCRIPTION" Value="PV Bad" />
+                    </DeltaV_AlarmPriorityTick.Parameters>
+                </DeltaV_AlarmPriorityTick>
+            </RSIStackPanel>
+
+        </RSIGrid>
+
+    </RSIGrid>
+
+</RSIFacePlate>

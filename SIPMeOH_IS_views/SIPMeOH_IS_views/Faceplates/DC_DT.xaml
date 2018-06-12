@@ -1,0 +1,211 @@
+﻿<RSIFacePlate
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	Title="DC Details"
+	Background="LightGray"
+	x:Class="SIPMeOH_IS_views.Faceplates.DC_DT">
+    <!--  Copy/Paste this grid content in order to create a custom Faceplate  -->
+    <RSIGrid Background="LightGray" Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!--  Header  -->
+        <DeltaV_Title x:Name="HeaderPart" Grid.ColumnSpan="3"/>
+        
+        <!--  Pin  -->
+        <PinFaceplateControl HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <!--  Limits Part  -->
+        <RSIGrid x:Name="LimitsPart" Grid.Column="0" Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="17"/>
+                <RowDefinition Height="2"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!--  LIMITS Text  -->
+            <TextBlock Grid.Row="0"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                           FontFamily="Arial"
+                           FontWeight="Bold"
+                           Foreground="#FFFFFF"
+                           Text="Limits">
+                <TextBlock.Effect>
+                    <DropShadowEffect BlurRadius="0"
+                                          Direction="-24"
+                                          Opacity="1"
+                                          ShadowDepth="2"
+                                          Color="Black" />
+                </TextBlock.Effect>
+            </TextBlock>
+
+            <!--  LIMITS Parameters  -->
+            <RSIStackPanel x:Name="Limits" Grid.Row="2"
+                           Width="202"
+                           HorizontalAlignment="Left">
+
+                <!-- Confirm Time   -->
+                <RSIText x:Name="Text"
+                                 HorizontalContentAlignment="Left"
+                                 VerticalContentAlignment="Center"
+                                 Background="Transparent"
+                                 BorderBrush="Transparent"
+                                 BorderThickness="0"
+                                 Foreground="Blue"
+                                 FontFamily="Arial"
+                                 FontSize="13.333"
+                                 FontWeight="Bold"
+                                 Shadow="True"
+                                 ShadowLeftTopColor="Gray"
+                                 ShadowRightBottomColor="White"
+                                 ShadowThickness="1"
+                                 Text="Confirm Time:" />
+
+                <!--  Confirm Passive Time  -->
+                <DeltaV_AlarmLimit  >
+                    <DeltaV_AlarmLimit.Parameters>
+                        <Param Name="$VALUE" Value="$TAGNAME.CFM_PASS_TIME:#" />
+                        <Param Name="$DESCRIPTION" Value="Passive" />
+                        <Param Name="$PARAMEXTENSION" Value="s" />
+                        <Param Name="$POSITION" Value="Center" />
+                    </DeltaV_AlarmLimit.Parameters>
+                </DeltaV_AlarmLimit>
+
+                <!--  Confirm Active 1 Time  -->
+                <DeltaV_AlarmLimit  >
+                    <DeltaV_AlarmLimit.Parameters>
+                        <Param Name="$VALUE" Value="$TAGNAME.CFM_ACT1_TIME:#" />
+                        <Param Name="$DESCRIPTION" Value="Active 1" />
+                        <Param Name="$PARAMEXTENSION" Value="s" />
+                        <Param Name="$POSITION" Value="Center" />
+                    </DeltaV_AlarmLimit.Parameters>
+                </DeltaV_AlarmLimit>
+
+                <!--  Confirm Active 2 Time  -->
+                <DeltaV_AlarmLimit  >
+                    <DeltaV_AlarmLimit.Parameters>
+                        <Param Name="$VALUE" Value="$TAGNAME.CFM_ACT2_TIME:#" />
+                        <Param Name="$DESCRIPTION" Value="Active 2" />
+                        <Param Name="$PARAMEXTENSION" Value="s" />
+                        <Param Name="$POSITION" Value="Center" />
+                    </DeltaV_AlarmLimit.Parameters>
+                </DeltaV_AlarmLimit>
+
+                <!--  Trip Time  -->
+                <DeltaV_AlarmLimit  >
+                    <DeltaV_AlarmLimit.Parameters>
+                        <Param Name="$VALUE" Value="$TAGNAME.TRIP_TIME:#" />
+                        <Param Name="$DESCRIPTION" Value="Trip Time" />
+                        <Param Name="$PARAMEXTENSION" Value="s" />
+                    </DeltaV_AlarmLimit.Parameters>
+                </DeltaV_AlarmLimit>
+
+                <!--  Delay Time  -->
+                <DeltaV_AlarmLimit >
+                    <DeltaV_AlarmLimit.Parameters>
+                        <Param Name="$VALUE" Value="$TAGNAME.DELAY_TIME:#" />
+                        <Param Name="$DESCRIPTION" Value="Delay Time" />
+                        <Param Name="$PARAMEXTENSION" Value="s" />
+                    </DeltaV_AlarmLimit.Parameters>
+                </DeltaV_AlarmLimit>
+
+                <!--  Restart Time  -->
+                <DeltaV_AlarmLimit >
+                    <DeltaV_AlarmLimit.Parameters>
+                        <Param Name="$VALUE" Value="$TAGNAME.RESTART_TIME:#" />
+                        <Param Name="$DESCRIPTION" Value="Restart Time" />
+                        <Param Name="$PARAMEXTENSION" Value="s" />
+                    </DeltaV_AlarmLimit.Parameters>
+                </DeltaV_AlarmLimit>
+
+                <!--  Crack Time  -->
+                <DeltaV_AlarmLimit >
+                    <DeltaV_AlarmLimit.Parameters>
+                        <Param Name="$VALUE" Value="$TAGNAME.CRACK_TIME:#" />
+                        <Param Name="$DESCRIPTION" Value="Crack Time" />
+                        <Param Name="$PARAMEXTENSION" Value="s" />
+                    </DeltaV_AlarmLimit.Parameters>
+                </DeltaV_AlarmLimit>
+
+            </RSIStackPanel>
+
+        </RSIGrid>
+
+        <!--  Alarms Part  -->
+        <RSIGrid x:Name="AlarmsPart" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="4">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="17"/>
+                <RowDefinition Height="2"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!--  Alarms Text  -->
+            <RSIGrid x:Name="AlarmsHeader" Grid.Row="0"
+                     HorizontalAlignment="Left">
+                <RSIGrid.ColumnDefinitions>
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="2" />
+                    <ColumnDefinition Width="160" />
+                    <ColumnDefinition Width="2" />
+                    <ColumnDefinition Width="30" />
+                    <!--<ColumnDefinition Width="5" />
+                    <ColumnDefinition Width="30" />-->
+                </RSIGrid.ColumnDefinitions>
+                <TextBlock Grid.Column="0"
+                            VerticalAlignment="Center"
+                               FontFamily="Arial"
+                               FontWeight="Bold"
+                               Foreground="#FFFFFF"
+                               Text="Alarms">
+                    <TextBlock.Effect>
+                        <DropShadowEffect BlurRadius="0"
+                                              Direction="-24"
+                                              Opacity="1"
+                                              ShadowDepth="2"
+                                              Color="Black" />
+                    </TextBlock.Effect>
+                </TextBlock>
+                <RSIText Grid.Column="2"
+                     HorizontalContentAlignment="Left"
+                     FontFamily="Arial"
+                     FontWeight="Bold"
+                     Foreground="#000000"
+                     Text="Priority" />
+                <RSIText Grid.Column="4"                     
+                     HorizontalContentAlignment="Center"
+                     FontFamily="Arial"
+                     FontWeight="Bold"
+                     Foreground="#000000"
+                     Text="Enab" />
+                <!--<RSIText Grid.Column="6"
+                     HorizontalContentAlignment="Center"
+                     FontFamily="Arial"
+                     FontWeight="Bold"
+                     Foreground="#000000"
+                     Text="Supp" />-->
+            </RSIGrid>
+
+            <!--  Alarms  -->
+            <RSIStackPanel x:Name="Alarms" Grid.Row="2" HorizontalAlignment="Left">
+
+                <DeltaV_AlarmPriorityTick >
+                    <DeltaV_AlarmPriorityTick.Parameters>
+                        <Param Name="$ALARMPATH" Value="$TAGNAME.MVDO.Alarms[FAIL_ALM]" />
+                        <Param Name="$DESCRIPTION" Value="Fail" />
+                    </DeltaV_AlarmPriorityTick.Parameters>
+                </DeltaV_AlarmPriorityTick>
+            </RSIStackPanel>
+
+        </RSIGrid>
+
+    </RSIGrid>
+</RSIFacePlate>

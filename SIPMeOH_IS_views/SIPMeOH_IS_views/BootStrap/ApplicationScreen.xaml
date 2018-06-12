@@ -1,0 +1,252 @@
+﻿<UserControl
+    x:Class="SIPMeOH_IS_views.BootStrap.ApplicationScreen"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:alarms="clr-namespace:RSI.DeltaV.Core.Alarms;assembly=RSI.DeltaV.Core"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:markupExtensions="clr-namespace:RSI.Common.WPFTools.MarkupExtensions;assembly=RSI.Common.WPFTools"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolbars="clr-namespace:SIPMeOH_IS_views.BootStrap.Toolbars"
+    xmlns:viewModels="clr-namespace:RSI.DeltaV.Core.ViewModels;assembly=RSI.DeltaV.Core"
+    d:DesignHeight="600"
+    d:DesignWidth="800"
+    Background="LightGray"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/RSI.Emulation.Controls;component/themes/styles.xaml" />
+                <ResourceDictionary Source="/RSI.Emulation.Controls;component/themes/ControlTemplates.xaml" />
+                <ResourceDictionary Source="/RSI.Emulation.Controls;component/colordictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <DockPanel Background="Silver">
+        <DockPanel.DataContext>
+            <viewModels:StartPageViewModel />
+        </DockPanel.DataContext>
+
+        <!--  The Bottom Bar  -->
+        <Grid
+            x:Name="BottomBar"
+            Height="32"
+            Background="{StaticResource ToolBarGradiant}"
+            DockPanel.Dock="Bottom"
+            TextElement.FontSize="12"
+            TextElement.Foreground="{StaticResource ButtonLabelColorBrush}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+
+            <StackPanel Orientation="Horizontal">
+
+                <!--  To Overview  -->
+                <Button
+                    x:Name="Print"
+                    Width="60"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Background="Transparent"
+                    Command="{markupExtensions:PrintServiceBinding Converter={UniversalConverter FallbackValue={x:Null},
+                                                                                                 Format={x:Null},
+                                                                                                 IsTargetTypeConversionDisabled=False},
+                                                                   Path=PrintScreenAndPrintCommand}"
+                    Content="Print"
+                    Foreground="#FF0050A0" />
+
+                <!--  To Trend  -->
+                <RSIBorder
+                    x:Name="ToScreen1"
+                    MinWidth="60"
+                    Padding="5,0"
+                    DockPanel.Dock="Left"
+                    Style="{StaticResource SeparationBorderStyle}">
+                    <RSIBorder.Animations>
+                        <ClickAnimation>
+                            <Link WindowName="Screen1" />
+                        </ClickAnimation>
+                    </RSIBorder.Animations>
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="Screen1" />
+                </RSIBorder>
+
+            </StackPanel>
+
+
+            <!--  RSI Logo  -->
+            <StackPanel
+                Grid.Column="1"
+                Width="Auto"
+                HorizontalAlignment="Center"
+                Orientation="Horizontal">
+                <!--  Home Button  -->
+                <RSIBorder
+                    x:Name="HomeBorder"
+                    Width="60"
+                    Style="{StaticResource SeparationBorderStyle}">
+                    <RSIButton
+                        x:Name="Home"
+                        Grid.Column="1"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Center"
+                        HorizontalContentAlignment="Center"
+                        Background="Transparent"
+                        ToolTip="Navigate to Start Page">
+                        <RSIButton.Content>
+                            <Image Source="../Resources/Home32.png" />
+                        </RSIButton.Content>
+                        <RSIButton.Animations>
+                            <ClickAnimation>
+                                <Link WindowName="HomeScreen" />
+                            </ClickAnimation>
+                        </RSIButton.Animations>
+                    </RSIButton>
+                </RSIBorder>
+
+                <Border
+                    x:Name="RSILogo"
+                    Width="120"
+                    Padding="5,2"
+                    HorizontalAlignment="Stretch"
+                    DockPanel.Dock="Left">
+
+                    <Image
+                        x:Name="Logo"
+                        HorizontalAlignment="Center"
+                        IsEnabled="False"
+                        IsHitTestVisible="False"
+                        Source="..\Resources\RSI logo.jpg" />
+                </Border>
+            </StackPanel>
+
+
+            <StackPanel Grid.Column="2" Orientation="Horizontal">
+
+                <!--  FOD Management  -->
+                <ToggleButtonContent
+                    x:Name="Fod"
+                    MinWidth="40"
+                    Background="Transparent"
+                    Content="FOD"
+                    Foreground="{StaticResource ButtonLabelColorBrush}"
+                    IsChecked="{Value Viewer.FOD}"
+                    ToolTipChecked="FOD is Activated. Click to disable it"
+                    ToolTipUnchecked="FOD is Disabled. Click to activate it" />
+
+                <!--  BL (Hand) Management  -->
+                <ToggleButtonContent
+                    x:Name="HandBL"
+                    MinWidth="40"
+                    Background="Transparent"
+                    IsChecked="{Value Viewer.BL}"
+                    ToolTipChecked="Activated. Click to disable it"
+                    ToolTipUnchecked="Disabled. Click to activate it">
+                    <Canvas RenderTransformOrigin="0.5,0.5">
+                        <Canvas.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="0.7" ScaleY="0.7" />
+                                <SkewTransform />
+                                <RotateTransform />
+                                <TranslateTransform />
+                            </TransformGroup>
+                        </Canvas.RenderTransform>
+                        <Path
+                            x:Name="main"
+                            Canvas.Left="-16.623"
+                            Canvas.Top="-10.542"
+                            Width="34.43"
+                            Height="22.383"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Bottom"
+                            Data="M4.5922067,18.088704 L4.4736416,18.25288 4.4899454,18.216981 4.512213,18.188392 z M21.291751,4.955101 L21.586771,5.1241894 C22.626487,5.7217588 23.670392,6.3316593 24.130576,6.5361862 25.040441,6.9405727 25.636239,7.617857 26.50557,8.1611915 27.12563,8.5487313 29.530681,10.002903 30.005561,10.161197 30.526059,10.334697 32.215692,11.973701 33.068049,11.973701 34.068208,11.973701 34.691146,21.472219 32.063334,21.472219 28.83496,21.472219 21.750345,21.473729 18.568089,21.473729 16.600847,21.473729 14.828815,21.729956 12.846047,21.797187 L12.582048,21.803842 C12.582048,21.803842 11.301239,21.951602 10.049808,21.843267 L9.8527901,21.824002 9.5395007,21.852273 C8.8681942,21.907308 7.872409,21.118865 7.872409,21.118865 L7.8560798,21.099974 C7.7823026,21.007667 7.7299567,20.904983 7.7032048,20.790825 7.3138269,19.129259 8.4174801,17.514318 8.4174801,17.469132 8.9382837,16.197928 10.9132,16.572786 12.412956,16.646029 L12.664118,16.654642 12.919154,16.657231 C13.161035,16.659512 13.398705,16.661216 13.630603,16.661216 14.506013,16.661216 15.798676,17.174224 16.465377,16.26508 16.69657,15.949813 16.982038,15.784388 17.215375,15.515077 17.517754,15.166081 18.482038,13.596762 18.732038,12.965785 18.294538,12.346688 18.768086,12.061367 18.232038,11.34663 17.886298,10.885645 17.982036,10.721594 17.482037,10.096558 17.392251,9.9843163 17.326161,9.9055772 17.273063,9.8484025 L17.249413,9.8241467 18.066991,8.8393655 C19.067984,7.6336555 20.0572,6.442132 20.999311,5.3073473 z M13.303607,0.50007248 C14.428155,0.51100349 16.061554,1.7586403 17.384574,2.724968 L17.580961,2.8677893 12.830064,8.5903053 12.820876,8.5983834 C12.728037,8.6781101 12.623821,8.7618046 12.505606,8.8486934 11.403002,9.6591158 10.198472,11.554976 8.781816,13.055062 8.1047356,14.206171 5.812734,16.585933 4.6421478,18.026467 L4.5922067,18.088704 4.8570335,17.722 C4.7348838,17.736134 4.624532,17.926858 4.5193396,18.152259 L4.4899454,18.216981 4.3931651,18.34124 C4.2421083,18.538657 4.122576,18.709897 4.0445318,18.847067 L4.4736416,18.25288 4.4671419,18.267192 C4.3116558,18.616719 4.1652873,18.99105 4.0056295,18.911222 3.3554163,19.236331 2.3808174,19.317586 1.6306362,18.848722 1.3494325,18.672967 0.95383835,18.513569 0.7556386,18.16122 0.49568272,17.699068 0.33168173,17.072172 0.78186417,16.471928 1.2482252,15.850106 1.2870321,15.609016 1.9431353,15.098711 2.5174098,14.652051 2.7721887,13.764182 3.294534,13.279148 3.9591477,12.662 5.0666008,10.435443 5.7320347,9.6590996 6.6188121,8.6245193 11.169535,2.4859686&#10;12.419536,0.90335941 12.647009,0.6153574 12.950177,0.49663734 13.303607,0.50007248 z"
+                            Fill="#FFF0C56B"
+                            Stretch="Fill"
+                            Stroke="Black" />
+                        <Path
+                            x:Name="crayon"
+                            Canvas.Left="-23.145"
+                            Canvas.Top="-2.23"
+                            Width="40"
+                            Height="5.188"
+                            Data="M6.4065952,0.5 L39.968607,0.5 39.84614,4.6884151 C39.84614,4.6884155 24.695724,4.6884155 14.753263,4.6884151 L14.558532,4.6884151 14.466521,4.5592222 C13.713823,3.5073364 12.881323,2.4474182 11.832734,2.7764573 11.797968,2.8053205 9.8504552,2.9877417 8.8207683,4.3486853 8.7641725,4.4234881 8.72369,4.5062027 8.6975269,4.5955491 L8.6783094,4.6884151 8.4862537,4.6884151 C7.1035427,4.6884155 6.2841586,4.6884155 6.2841586,4.6884151 L6.2841586,4.2227173 6.0653476,4.1929932 C2.6266574,3.715332 0.48929781,3.0856323 0.50004029,2.4264524 0.51075166,1.767334 2.6674594,1.2074585 6.1198525,0.84191883 L6.2841586,0.82501191 z"
+                            Fill="#FF948B8B"
+                            RenderTransformOrigin="0.500000117092473,0.5"
+                            Stretch="Fill"
+                            Stroke="Black">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform />
+                                    <SkewTransform />
+                                    <RotateTransform Angle="-50.3" />
+                                    <TranslateTransform X="-0.0683868771946674" Y="-0.017659316738477315" />
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Canvas>
+
+                </ToggleButtonContent>
+
+                <!--  FAIL Management  -->
+                <ToggleButtonContent
+                    x:Name="Fail"
+                    MinWidth="40"
+                    Background="Transparent"
+                    IsChecked="{Value Viewer.FAIL}"
+                    ToolTipChecked="FAIL is Activated. Click to disable it"
+                    ToolTipUnchecked="FAIL is Disabled. Click to activate it">
+                    <Path
+                        Width="20.892"
+                        Height="26.001"
+                        Data="M86,1 L81.5,-3.5 85,-7.5 81,-14"
+                        RenderTransformOrigin="0.5,0.5"
+                        Stretch="Fill"
+                        Stroke="Black"
+                        StrokeLineJoin="Round"
+                        StrokeThickness="3">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1" ScaleY="1" />
+                                <SkewTransform AngleX="0" AngleY="0" />
+                                <RotateTransform Angle="-25" />
+                                <TranslateTransform />
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+                </ToggleButtonContent>
+            </StackPanel>
+        </Grid>
+
+        <!--  Navigation Part  -->
+        <Grid
+            x:Name="NavigationPan"
+            Background="White"
+            DockPanel.Dock="Left"
+            Visibility="Visible">
+            <ContentPresenter x:Name="TOC" ContentTemplate="{StaticResource TOC}" />
+        </Grid>
+
+
+        <DockPanel>
+            <!--  Custom Topbar  -->
+            <toolbars:TopBar DockPanel.Dock="Top" />
+
+            <!--  Custom Bottombar  -->
+            <alarms:DeltaV_AlarmsListBanner DockPanel.Dock="Bottom" />
+
+            <!--  Workspace Part  -->
+            <Grid x:Name="Workspace">
+                <!-- <Viewbox> -->
+                <WorkspaceControlExt x:Name="mainWindow" MimicTemplateKey="StartPage" />
+                <!-- </Viewbox> -->
+            </Grid>
+        </DockPanel>
+
+    </DockPanel>
+</UserControl>

@@ -1,0 +1,89 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:hmi="clr-namespace:SIPMeOH_IS_views.HMI"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity">
+
+    <Style TargetType="{x:Type hmi:Serial_AI_PES}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type hmi:Serial_AI_PES}">
+                    <Canvas
+                        Width="133"
+                        Height="36"
+                        Background="Transparent">
+                        <Canvas
+                            Name="grpData9"
+                            Canvas.Left="9"
+                            Canvas.Top="16"
+                            Width="117"
+                            Height="19">
+                            <Rectangle
+                                Name="rctData7"
+                                Width="117"
+                                Height="19"
+                                Fill="#FF525252"
+                                RadiusX="0"
+                                RadiusY="0"
+                                Stroke="{x:Null}"
+                                StrokeThickness="0" />
+                            <TextBlock
+                                Canvas.Left="69"
+                                Canvas.Top="2.09666666666666"
+                                FontFamily="Arial"
+                                FontSize="14"
+                                FontWeight="Normal"
+                                Foreground="#FF00FF00"
+                                Text="barg     " />
+                        </Canvas>
+                        <Image
+                            Name="Bitmap7"
+                            Canvas.Left="119"
+                            Canvas.Top="21"
+                            Width="15"
+                            Height="11"
+                            Source="..\GraphicViews\Translations\Images\B_BT1201_Bitmap7_0.png" />
+                        <TextBlock
+                            Canvas.Left="17"
+                            Canvas.Top="0.096666666666664"
+                            FontFamily="Arial"
+                            FontSize="14"
+                            FontWeight="Normal"
+                            Foreground="#FF000000"
+                            Text="10PI12704A    " />
+                        <Canvas
+                            Name="AABInd"
+                            Canvas.Top="13"
+                            Width="14"
+                            Height="14">
+                            <Rectangle
+                                Name="Rect54"
+                                Canvas.Left="-0.5"
+                                Canvas.Top="1.5"
+                                Width="15"
+                                Height="12"
+                                Fill="#FFC6C6C6"
+                                RadiusX="0"
+                                RadiusY="0"
+                                Stroke="#FF000000"
+                                StrokeDashArray=""
+                                StrokeEndLineCap="Round"
+                                StrokeLineJoin="Round"
+                                StrokeMiterLimit="10"
+                                StrokeStartLineCap="Round"
+                                StrokeThickness="1" />
+                            <TextBlock
+                                Canvas.Left="2"
+                                Canvas.Top="1.86333333333333"
+                                FontFamily="Arial Black"
+                                FontSize="11"
+                                FontWeight="Normal"
+                                Foreground="#FFFF0000"
+                                Text="A     " />
+                        </Canvas>
+                    </Canvas>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

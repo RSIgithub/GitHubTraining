@@ -1,0 +1,634 @@
+﻿<RSIFacePlate
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:gauge="http://schemas.actiprosoftware.com/winfx/xaml/gauge"	
+	mc:Ignorable="d"
+	Title="PID"
+	Background="LightGray"
+	x:Class="SIPMeOH_IS_views.Faceplates.LOOP_FP">
+    <!--  Copy/Paste this grid content in order to create a custom Faceplate  -->
+    <RSIGrid Width="241"
+             Margin="5"
+             Background="LightGray">
+        <RSIGrid.Resources>
+            <ControlTemplate x:Key="SPTextSlider" TargetType="{x:Type Slider}">
+                <Track x:Name="PART_Track">
+                    <Track.Thumb>
+                        <Thumb x:Name="Thumb">
+                            <Thumb.Style>
+                                <Style TargetType="{x:Type Thumb}">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type Thumb}">
+                                                <DeltaV_SPText />
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Thumb.Style>
+                        </Thumb>
+                    </Track.Thumb>
+                </Track>
+            </ControlTemplate>
+        </RSIGrid.Resources>
+
+        <RSIGrid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="30" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="Auto" />
+        </RSIGrid.RowDefinitions>
+
+        <!--  Pin  -->
+        <PinFaceplateControl HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <!--  By Pass  -->
+        <DeltaV_BypassButton x:Name="BypassNormalButtons"
+                             HorizontalAlignment="Center" />
+
+        <!--  Title  -->
+        <DeltaV_Title x:Name="_Title"
+                      Grid.Row="2"
+                      VerticalAlignment="Center" />
+
+        <!--  Main Part  -->
+        <RSIGrid x:Name="MainPart" Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="15" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="3" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!--  OUT ReadBack  -->
+            <DeltaV_OUTText x:Name="OutValue"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            HorizontalAlignment="Right"
+                            ToolTip="OUT. Input if ModeActual = MAN"/>
+
+            <!--  Output units  -->
+            <RSIText x:Name="OutUnit"
+                     Grid.Row="2"
+                     Grid.Column="0"
+                     Width="113"
+                     Height="19"
+                     HorizontalAlignment="Right"
+                     HorizontalContentAlignment="Right"
+                     VerticalContentAlignment="Center"
+                     FontFamily="Arial"
+                     FontSize="13.333"
+                     Foreground="#000000"
+                     Text="\$TAGNAME.OUT_SCALE_EU\" />
+
+            <!--  Output EU 100  -->
+            <RSIText x:Name="OutEu100"
+                     Grid.Row="3"
+                     Grid.Column="0"
+                     Width="116"
+                     Height="18"
+                     HorizontalAlignment="Right"
+                     HorizontalContentAlignment="Right"
+                     VerticalContentAlignment="Center"
+                     FontFamily="Arial"
+                     FontSize="13.333"
+                     Foreground="#000000"
+                     Text="\$TAGNAME.OUT_SCALE_HIGH:#.#\" />
+
+            <!--  PV  -->
+            <DeltaV_PVText Grid.Column="2"/>
+
+            <!--  PV Units  -->
+            <RSIText x:Name="PvUnit"
+                     Grid.Row="2"
+                     Grid.Column="2"
+                     HorizontalAlignment="Left"
+                     FontFamily="Arial"
+                     FontSize="13.333"
+                     Foreground="#000000"
+                     Text="\$TAGNAME.PV_SCALE_EU\" />
+
+            <!--  PV EU 100  -->
+            <RSIText x:Name="Pveu100"
+                     Grid.Row="3"
+                     Grid.Column="2"
+                     HorizontalAlignment="Left"
+                     HorizontalContentAlignment="Left"
+                     VerticalContentAlignment="Center"
+                     FontFamily="Arial"
+                     FontSize="13.333"
+                     Foreground="#000000"
+                     Text="\$TAGNAME.PV_SCALE_HIGH:#.#\" />
+
+            <!--  Left Part  -->
+            <RSIGrid x:Name="PvPart"
+                     Grid.Row="4"
+                     Grid.Column="2"
+                     Height="225"
+                     Margin="-12,0,12,0">
+
+                <RSIGrid.ColumnDefinitions>
+                    <ColumnDefinition Width="52" />
+                    <ColumnDefinition Width="*" />
+                </RSIGrid.ColumnDefinitions>
+
+                <!--  SP Text Edition  -->
+
+                <!--<Canvas Grid.Column="1" x:Name="SP_Text" Background="#FFEE0C0C">
+                    <DeltaV_SPText>
+                        <DeltaV_SPText.Animations>
+                            <Animation>
+                                <Translate Expression="($TAGNAME.SP - $TAGNAME.PV_SCALE_LOW) / ( $TAGNAME.PV_SCALE_HIGH - $TAGNAME.PV_SCALE_LOW ) * 100"
+                                           FinalValue="100"
+                                           InitialValue="0"
+                                           Orientation="Vertical" />
+                            </Animation>
+                        </DeltaV_SPText.Animations>
+                    </DeltaV_SPText>
+                </Canvas>-->
+
+                <Slider x:Name="SPText"
+                        Grid.Column="1"
+                        Maximum="{Value SP_HI_LIM,
+                                        FallbackValue=80}"
+                        Minimum="{Value SP_LO_LIM,
+                                        FallbackValue=10}"
+                        Orientation="Vertical"
+                        Template="{StaticResource SPTextSlider}"
+                        Value="{Value SP,
+                                      FallbackValue=37,
+                                      Mode=TwoWay}" />
+
+                <gauge:LinearGauge x:Name="PvGauge"
+                                   Grid.Column="0"
+                                   BackgroundType="None"
+                                   FrameType="None"
+                                   IsRimEffectEnabled="False"
+                                   Orientation="Vertical"
+                                   RimType="None">
+
+                    <gauge:LinearScale Background="Black"
+                                       BarAscent="20"
+                                       BarExtent="95%">
+                        <gauge:LinearTickSet x:Name="g"
+                                             Maximum="{Value PV_SCALE_HIGH,
+                                                             FallbackValue=100}"
+                                             Minimum="{Value PV_SCALE_LOW,
+                                                             FallbackValue=0}">
+
+                            <gauge:LinearTickSet.Ticks>
+
+                                <!--  Minor Tick  -->
+                                <gauge:LinearTickMarkMajor Margin="-15,0,0,0"
+                                                           Background="Black"
+                                                           ScalePlacement="Inside"
+                                                           TickMarkAscent="3"
+                                                           TickMarkExtent="1">
+                                    <gauge:LinearTickMarkMajor.MajorInterval>
+                                        <MultiBinding Converter="{Parser '(a - b) / 50'}">
+                                            <Binding ElementName="g" Path="Maximum" />
+                                            <Binding ElementName="g" Path="Minimum" />
+                                        </MultiBinding>
+                                    </gauge:LinearTickMarkMajor.MajorInterval>
+                                </gauge:LinearTickMarkMajor>
+
+                                <!--  Major Tick  -->
+                                <gauge:LinearTickMarkMajor Margin="-10,0,0,0"
+                                                           Background="Black"
+                                                           ScalePlacement="Inside"
+                                                           TickMarkAscent="10"
+                                                           TickMarkExtent="1">
+                                    <gauge:LinearTickMarkMajor.MajorInterval>
+                                        <MultiBinding Converter="{Parser '(a - b) / 10'}">
+                                            <Binding ElementName="g" Path="Maximum" />
+                                            <Binding ElementName="g" Path="Minimum" />
+                                        </MultiBinding>
+                                    </gauge:LinearTickMarkMajor.MajorInterval>
+                                </gauge:LinearTickMarkMajor>
+
+
+                            </gauge:LinearTickSet.Ticks>
+
+                            <!--  Bar Value and Sliders  -->
+                            <gauge:LinearTickSet.Pointers>
+
+                                <!--  PV Bar Graph  -->
+                                <gauge:LinearPointerBar 
+                                                        BorderWidth="1"
+                                                        DampeningMaximumDuration="0"
+                                                        DampeningMinimumDuration="0"
+                                                        HasDropShadow="False"
+                                                        PointerAscent="19"
+                                                        PointerExtent="100%"
+                                                        ToolTip="PV"
+                                                        Value="{Value PV,
+                                                                      FallbackValue=40}">
+                                    <gauge:LinearPointerBar.Style>
+                                        <Style TargetType="{x:Type gauge:LinearPointerBar}">
+                                            <Setter Property="Background" Value="Green"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding MostRevelantAlarmName}" Value="HI_HI_ALM">
+                                                    <Setter Property="Background" Value="Red"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding MostRevelantAlarmName}" Value="LO_LO_ALM">
+                                                    <Setter Property="Background" Value="Red"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding MostRevelantAlarmName}" Value="LO_ALM">
+                                                    <Setter Property="Background" Value="Yellow"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding MostRevelantAlarmName}" Value="HI_ALM">
+                                                    <Setter Property="Background" Value="Yellow"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </gauge:LinearPointerBar.Style>
+                                </gauge:LinearPointerBar>
+
+
+                                <!--  HI PV Alarm Limit  -->
+                                <gauge:LinearPointerMarker x:Name="HI_ALM"
+                                                           Background="Red"
+                                                           BorderWidth="1"
+                                                           DampeningMaximumDuration="0"
+                                                           DampeningMinimumDuration="0"
+                                                           HasDropShadow="False"
+                                                           MarkerType="TriangleSharp"
+                                                           PointerAscent="10"
+                                                           PointerExtent="10"
+                                                           ScalePlacement="Inside"
+                                                           ToolTip="HI_LIM"
+                                                           Visibility="{ParameterBinding PV.Alarms[HI_ALM].IsEvaluationRequired,
+                                                                                         Converter={IfThenElse Visible:Hidden}}"
+                                                           ZIndex="10"
+                                                           Value="{ParameterBinding PV.Alarms[HI_ALM].Threshold,
+                                                                                    FallbackValue=95}" />
+
+                                <!--  Low PV Alarm Limit  -->
+                                <gauge:LinearPointerMarker x:Name="LO_ALM"
+                                                           Background="Red"
+                                                           BorderWidth="1"
+                                                           DampeningMaximumDuration="0"
+                                                           DampeningMinimumDuration="0"
+                                                           HasDropShadow="False"
+                                                           MarkerType="TriangleSharp"
+                                                           PointerAscent="10"
+                                                           PointerExtent="10"
+                                                           ScalePlacement="Inside"
+                                                           ToolTip="LO_LIM"
+                                                           Visibility="{ParameterBinding PV.Alarms[LO_ALM].IsEvaluationRequired,
+                                                                                         Converter={IfThenElse Visible:Hidden}}"
+                                                           ZIndex="10"
+                                                           Value="{ParameterBinding PV.Alarms[LO_ALM].Threshold,
+                                                                                    FallbackValue=24}" />
+
+                                <!--  STDEV HI Alarm Limit  -->
+                                <gauge:LinearPointerMarker x:Name="STDEV_HI_ALM"
+                                                           Background="Red"
+                                                           BorderWidth="1"
+                                                           DampeningMaximumDuration="0"
+                                                           DampeningMinimumDuration="0"
+                                                           HasDropShadow="False"
+                                                           MarkerType="TriangleSharp"
+                                                           PointerAscent="10"
+                                                           PointerExtent="10"
+                                                           ScalePlacement="Outside"
+                                                           ToolTip="DV_HI_LIM"
+                                                           Visibility="{ParameterBinding STDEV.Alarms[DV_HI_ALM].IsEvaluationRequired,
+                                                                                         Converter={IfThenElse Visible:Hidden}}"
+                                                           ZIndex="90"
+                                                           Value="{ParameterBinding STDEV.Alarms[DV_HI_ALM].Threshold,
+                                                                                    FallbackValue=95}" />
+
+                                <!--  STDEV Low Dev Alarm Limit  -->
+                                <gauge:LinearPointerMarker x:Name="STDEV_LO_ALM"
+                                                           Background="Red"
+                                                           BorderWidth="1"
+                                                           DampeningMaximumDuration="0"
+                                                           DampeningMinimumDuration="0"
+                                                           HasDropShadow="False"
+                                                           MarkerType="TriangleSharp"
+                                                           PointerAscent="10"
+                                                           PointerExtent="10"
+                                                           ScalePlacement="Outside"
+                                                           ToolTip="DV_LO_LIM"
+                                                           Visibility="{ParameterBinding STDEV.Alarms[DV_LO_ALM].IsEvaluationRequired,
+                                                                                         Converter={IfThenElse Visible:Hidden}}"
+                                                           ZIndex="10"
+                                                           Value="{ParameterBinding STDEV.Alarms[DV_LO_ALM].Threshold,
+                                                                                    FallbackValue=35}" />
+
+
+                                <!--  SP Low Slider  -->
+                                <gauge:LinearPointerMarker x:Name="outLowSlider1"
+                                                           Background="White"
+                                                           BorderWidth="1"
+                                                           DampeningMaximumDuration="0"
+                                                           DampeningMinimumDuration="0"
+                                                           HasDropShadow="False"
+                                                           MarkerType="TriangleSharp"
+                                                           PointerAscent="10"
+                                                           PointerExtent="10"
+                                                           ScalePlacement="Outside"
+                                                           ToolTip="SP_LO_LIM"
+                                                           ZIndex="10"
+                                                           Value="{Value SP_LO_LIM,
+                                                                         FallbackValue=10}" />
+
+                                <!--  SP High Slider  -->
+                                <gauge:LinearPointerMarker x:Name="outHighSlider1"
+                                                           Background="White"
+                                                           BorderWidth="1"
+                                                           DampeningMaximumDuration="0"
+                                                           DampeningMinimumDuration="0"
+                                                           HasDropShadow="False"
+                                                           MarkerType="TriangleSharp"
+                                                           PointerAscent="10"
+                                                           PointerExtent="8"
+                                                           ScalePlacement="Outside"
+                                                           ToolTip="SP_HI_LIM"
+                                                           ZIndex="10"
+                                                           Value="{Value SP_HI_LIM,
+                                                                         FallbackValue=80}" />
+
+                                <!--  SP Wrk Slider  -->
+                                <gauge:LinearPointerMarker x:Name="SpWrkSlider"
+                                                           Background="Transparent"
+                                                           BorderWidth="1"
+                                                           DampeningMaximumDuration="0"
+                                                           DampeningMinimumDuration="0"
+                                                           Focusable="True"
+                                                           HasDropShadow="False"
+                                                           MarkerType="TriangleSharp"
+                                                           PointerAscent="15"
+                                                           PointerExtent="15"
+                                                           ScalePlacement="Outside"
+                                                           ToolTip="SP_WRK"
+                                                           Value="{Value SP_WRK,
+                                                                         FallbackValue=30}" />
+
+                                <!--  SP Slider  -->
+                                <gauge:LinearPointerMarker x:Name="SpSlider"
+                                                           Background="White"
+                                                           BorderWidth="1"
+                                                           CanDrag="True"
+                                                           DampeningMaximumDuration="0"
+                                                           DampeningMinimumDuration="0"
+                                                           Focusable="True"
+                                                           HasDropShadow="False"
+                                                           MarkerType="TriangleSharp"
+                                                           PointerAscent="15"
+                                                           PointerExtent="15"
+                                                           ScalePlacement="Outside"
+                                                           ToolTip="SP"
+                                                           ZIndex="10"
+                                                           Value="{Value SP,
+                                                                         FallbackValue=40,
+                                                                         Mode=TwoWay}" />
+
+
+
+                            </gauge:LinearTickSet.Pointers>
+
+                        </gauge:LinearTickSet>
+                    </gauge:LinearScale>
+                </gauge:LinearGauge>
+            </RSIGrid>
+
+            <!--  Middle Scale Points  -->
+            <RSICanvas x:Name="Scale"
+                       Grid.Row="4"
+                       Grid.Column="1"
+                       Visibility="Hidden">
+                <!--  High High PV Alarm Limit  -->
+                <DeltaV_AlarmSlider Canvas.Left="5">
+                    <DeltaV_AlarmSlider.Parameters>
+                        <Param Name="$PARAMETERNAME" Value="PV" />
+                        <Param Name="$ALARMNAME" Value="HI_HI_ALM" />
+                    </DeltaV_AlarmSlider.Parameters>
+                </DeltaV_AlarmSlider>
+            </RSICanvas>
+
+            <!--  Left Part (CAS/AUT/MAN Gauge)  -->
+            <RSIGrid x:Name="OutPart"
+                     Grid.Row="4"
+                     Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="5" />
+                    <ColumnDefinition Width="52" />
+                </Grid.ColumnDefinitions>
+
+                <gauge:LinearGauge x:Name="OutGauge"
+                                   Grid.Column="2"
+                                   Height="225"
+                                   Margin="0,0,-32,0"
+                                   Background="{x:Null}"
+                                   FrameType="None"
+                                   IsRimEffectEnabled="False"
+                                   Orientation="Vertical"
+                                   RimType="None">
+                    <gauge:LinearScale Background="Black"
+                                       BarAscent="20"
+                                       BarExtent="95%">
+
+
+                        <gauge:LinearTickSet Maximum="{Value OUT_SCALE_HIGH, FallbackValue=100}" Minimum="{Value OUT_SCALE_LOW, FallbackValue=0}">
+
+                            <!--  Bar Value and Sliders  -->
+                            <gauge:LinearTickSet.Pointers>
+
+                                <!--  OUT Bar Graph  -->
+                                <gauge:LinearPointerBar Background="#FF00FFFF"
+                                                        BorderWidth="1"
+                                                        DampeningMaximumDuration="0"
+                                                        DampeningMinimumDuration="0"
+                                                        HasDropShadow="False"
+                                                        PointerAscent="19"
+                                                        PointerExtent="100%"
+                                                        ToolTip="OUT"
+                                                        Value="{Value OUT,
+                                                                      FallbackValue=60}" />
+                                <!--  OUT Low Slider  -->
+                                <gauge:LinearPointerMarker x:Name="outLowSlider"
+                                                           Background="#FF00FFFF"
+                                                           BorderWidth="1"
+                                                           DampeningMaximumDuration="0"
+                                                           DampeningMinimumDuration="0"
+                                                           HasDropShadow="False"
+                                                           MarkerType="TriangleSharp"
+                                                           PointerAscent="10"
+                                                           PointerExtent="10"
+                                                           ScalePlacement="Inside"
+                                                           ToolTip="OUT_LO_LIM"
+                                                           Value="{Value OUT_LO_LIM,
+                                                                         FallbackValue=5}" />
+
+                                <!--  OUT High Slider  -->
+                                <gauge:LinearPointerMarker x:Name="outHighSlider"
+                                                           Background="#FF00FFFF"
+                                                           BorderWidth="1"
+                                                           DampeningMaximumDuration="0"
+                                                           DampeningMinimumDuration="0"
+                                                           HasDropShadow="False"
+                                                           MarkerType="TriangleSharp"
+                                                           PointerAscent="10"
+                                                           PointerExtent="8"
+                                                           ScalePlacement="Inside"
+                                                           ToolTip="OUT_HI_LIM"
+                                                           Value="{Value OUT_HI_LIM,
+                                                                         FallbackValue=95}" />
+
+                                <!--  MV Slider  -->
+                                <gauge:LinearPointerMarker x:Name="outSlider"
+                                                           Background="#FF00FFFF"
+                                                           BorderWidth="1"
+                                                           CanDrag="True"
+                                                           DampeningMaximumDuration="0"
+                                                           DampeningMinimumDuration="0"
+                                                           Focusable="True"
+                                                           HasDropShadow="False"
+                                                           MarkerType="TriangleSharp"
+                                                           PointerAscent="15"
+                                                           PointerExtent="15"
+                                                           ScalePlacement="Inside"
+                                                           ToolTip="MV"
+                                                           ZIndex="10"
+                                                           Value="{Value MV,
+                                                                         FallbackValue=90,
+                                                                         Mode=TwoWay}" />
+
+
+                            </gauge:LinearTickSet.Pointers>
+
+                        </gauge:LinearTickSet>
+                    </gauge:LinearScale>
+                </gauge:LinearGauge>
+
+
+                <RSIGrid x:Name="ActionPart"
+                         Grid.Column="0"
+                         HorizontalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                        <!--  9  -->
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <!--  CAS Button  -->
+                    <DeltaV_CASModeButton Grid.Row="1" />
+                    <!--  AUT BUtton  -->
+                    <DeltaV_AUTModeButton Grid.Row="2" />
+                    <!--  MAN Button  -->
+                    <DeltaV_MANModeButton Grid.Row="3" />
+
+                    <!--  Target Mode  -->
+                    <DeltaV_TargetModeText x:Name="TargetMode" Grid.Row="5" />
+
+                    <!--  Actual Mode  -->
+                    <DeltaV_ActualModeText x:Name="ActualMode" Grid.Row="7" />
+                    <!--  SetPoint Slew keys  -->
+                    <DeltaV_SPIncDecButton Grid.Row="9" ToolTip="SP" />
+
+                    <!--  Output Slew keys  -->
+                    <DeltaV_MVIncDecButton Grid.Row="11" ToolTip="MV" />
+                </RSIGrid>
+
+            </RSIGrid>
+
+            <!--  Bottom Out Gauge Text  -->
+            <RSIText x:Name="OutGaugeText"
+                     Grid.Row="5"
+                     Width="47"
+                     Height="19"
+                     HorizontalAlignment="Right"
+                     HorizontalContentAlignment="Right"
+                     VerticalContentAlignment="Center"
+                     FontFamily="Arial"
+                     FontSize="13.333"
+                     Foreground="#000000"
+                     Text="\$TAGNAME.OUT_SCALE_LOW:#.#\" />
+
+            <!--  Bottom PV Gauge Text  -->
+            <RSIText x:Name="PVGaugeText"
+                     Grid.Row="5"
+                     Grid.Column="2"
+                     Width="47"
+                     Height="19"
+                     HorizontalAlignment="Left"
+                     HorizontalContentAlignment="Left"
+                     VerticalContentAlignment="Center"
+                     FontFamily="Arial"
+                     FontSize="13.333"
+                     Foreground="#000000"
+                     Text="\$TAGNAME.PV_SCALE_LOW:#.#\" />
+
+        </RSIGrid>
+
+        <!--  Alarm Summary  -->
+        <DeltaVMiniAlarmSummary Grid.Row="6" Height="73" />
+
+        <!--  Bottom Toolbar Part  -->
+        <RSIStackPanel x:Name="BottomBar"
+                       Grid.Row="8"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Orientation="Horizontal">
+
+            <!--  Open Detail Display  -->
+            <DeltaV_OpenDetailWindow FallbackWindowName="LOOP_DT">
+                <DeltaV_OpenDetailWindow.Parameters>
+                    <Param Name="$TITLE" Value="PID Details" />
+                </DeltaV_OpenDetailWindow.Parameters>
+            </DeltaV_OpenDetailWindow>
+
+            <!--  Open Primary Process Graphic  -->
+            <DeltaV_OpenPrimCPWindow />
+
+            <!--  Open Trend Display  -->
+            <DeltaV_OpenTrendWindow FallbackWindowName="LOOP_TR">
+                <DeltaV_OpenTrendWindow.Parameters>
+                    <Param Name="$TITLE" Value="PID Trends" />
+                </DeltaV_OpenTrendWindow.Parameters>
+            </DeltaV_OpenTrendWindow>
+
+            <!--  Open Control Studio  -->
+            <DeltaV_OpenControlStudio />
+
+            <!--  Open Process History View  -->
+            <DeltaV_OpenProcHistViewWindow>
+                <DeltaV_OpenProcHistViewWindow.Parameters>
+                    <Param Name="$TITLE" Value="PID History" />
+                </DeltaV_OpenProcHistViewWindow.Parameters>
+            </DeltaV_OpenProcHistViewWindow>
+
+            <!--  Ack Unit Alarms  -->
+            <DeltaVAckUnitAlarms />
+
+        </RSIStackPanel>
+    </RSIGrid>
+</RSIFacePlate>	

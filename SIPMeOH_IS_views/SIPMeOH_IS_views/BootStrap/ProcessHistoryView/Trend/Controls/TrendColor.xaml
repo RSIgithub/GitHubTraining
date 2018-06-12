@@ -1,0 +1,136 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:enums="clr-namespace:SIPMeOH_IS_views.BootStrap.ProcessHistoryView.Trend.Controls"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:trend1="clr-namespace:SIPMeOH_IS_views.BootStrap.ProcessHistoryView.Trend">
+
+    <DataTemplate DataType="{x:Type trend1:TrendColorViewModel}">
+        <DataTemplate.Resources>
+            <Style TargetType="{x:Type RadioButton}">
+                <Setter Property="Width" Value="34" />
+                <Setter Property="Height" Value="20" />
+                <Setter Property="BorderThickness" Value="0" />
+                <Setter Property="BorderBrush" Value="Orange" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type RadioButton}">
+                            <Border
+                                x:Name="radioButtonBorder"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}" />
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsChecked" Value="true">
+                                    <Setter TargetName="radioButtonBorder" Property="BorderThickness" Value="2" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </DataTemplate.Resources>
+        <Border BorderBrush="Gray" BorderThickness="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="32" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+                <SimpleBorder>
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontFamily="Arial"
+                        FontSize="18"
+                        Text="Color Setting" />
+                </SimpleBorder>
+                <SimpleBorder Grid.Row="1">
+                    <WrapGrid
+                        ColumnPadding="10"
+                        ColumnWidths="Auto, Auto, Auto, Auto"
+                        RowPadding="10">
+                        <RadioButton Background="Black" IsChecked="{Binding TrendColor, Converter={EnumBooleanConverter}, ConverterParameter={x:Static enums:TrendColor.R0C0}}" />
+                        <RadioButton Background="#FF4B4B4B" IsChecked="{Binding TrendColor, Converter={EnumBooleanConverter}, ConverterParameter={x:Static enums:TrendColor.R0C1}}" />
+                        <RadioButton Background="Gray" IsChecked="{Binding TrendColor, Converter={EnumBooleanConverter}, ConverterParameter={x:Static enums:TrendColor.R0C2}}" />
+                        <RadioButton Background="White" IsChecked="{Binding TrendColor, Converter={EnumBooleanConverter}, ConverterParameter={x:Static enums:TrendColor.R0C3}}" />
+                        <RadioButton Background="Navy" IsChecked="{Binding TrendColor, Converter={EnumBooleanConverter}, ConverterParameter={x:Static enums:TrendColor.R1C0}}" />
+                        <RadioButton Background="#FF8000FF" IsChecked="{Binding TrendColor, Converter={EnumBooleanConverter}, ConverterParameter={x:Static enums:TrendColor.R1C1}}" />
+                        <RadioButton Background="Blue" IsChecked="{Binding TrendColor, Converter={EnumBooleanConverter}, ConverterParameter={x:Static enums:TrendColor.R1C2}}" />
+                        <RadioButton Background="Cyan" IsChecked="{Binding TrendColor, Converter={EnumBooleanConverter}, ConverterParameter={x:Static enums:TrendColor.R1C3}}" />
+                        <RadioButton Background="Maroon" IsChecked="{Binding TrendColor, Converter={EnumBooleanConverter}, ConverterParameter={x:Static enums:TrendColor.R2C0}}" />
+                        <RadioButton Background="Magenta" IsChecked="{Binding TrendColor, Converter={EnumBooleanConverter}, ConverterParameter={x:Static enums:TrendColor.R2C1}}" />
+                        <RadioButton Background="Red" IsChecked="{Binding TrendColor, Converter={EnumBooleanConverter}, ConverterParameter={x:Static enums:TrendColor.R2C2}}" />
+                        <RadioButton Background="#FFFF8000" IsChecked="{Binding TrendColor, Converter={EnumBooleanConverter}, ConverterParameter={x:Static enums:TrendColor.R2C3}}" />
+                        <RadioButton Background="#FF005500" IsChecked="{Binding TrendColor, Converter={EnumBooleanConverter}, ConverterParameter={x:Static enums:TrendColor.R3C0}}" />
+                        <RadioButton Background="#FF009600" IsChecked="{Binding TrendColor, Converter={EnumBooleanConverter}, ConverterParameter={x:Static enums:TrendColor.R3C1}}" />
+                        <RadioButton Background="Lime" IsChecked="{Binding TrendColor, Converter={EnumBooleanConverter}, ConverterParameter={x:Static enums:TrendColor.R3C2}}" />
+                        <RadioButton Background="Yellow" IsChecked="{Binding TrendColor, Converter={EnumBooleanConverter}, ConverterParameter={x:Static enums:TrendColor.R3C3}}" />
+                    </WrapGrid>
+                </SimpleBorder>
+                <SimpleBorder Grid.Row="2">
+                    <Grid
+                        Height="24"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="10" />
+                            <ColumnDefinition Width="70" />
+                        </Grid.ColumnDefinitions>
+
+                        <RSIText
+                            HorizontalContentAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            Background="#EBE8D8"
+                            BorderBrush="#FFFFFF"
+                            BorderThickness="1"
+                            Cursor="Hand"
+                            FontFamily="Arial"
+                            FontSize="9.333"
+                            Foreground="#000000"
+                            Shadow="True"
+                            ShadowLeftTopColor="#EBE8D8"
+                            ShadowRightBottomColor="#ABA799"
+                            Text="OK">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseLeftButtonUp">
+                                    <i:InvokeCommandAction Command="{Binding CommitAndCloseWindowCommand}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </RSIText>
+
+                        <RSIText
+                            Grid.Column="2"
+                            HorizontalContentAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            Background="#EBE8D8"
+                            BorderBrush="#FFFFFF"
+                            BorderThickness="1"
+                            Cursor="Hand"
+                            FontFamily="Arial"
+                            FontSize="9.333"
+                            Foreground="#000000"
+                            Shadow="True"
+                            ShadowLeftTopColor="#EBE8D8"
+                            ShadowRightBottomColor="#ABA799"
+                            Text="Close">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseLeftButtonUp">
+                                    <i:InvokeCommandAction Command="{Binding CloseWindowCommand}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </RSIText>
+                    </Grid>
+                </SimpleBorder>
+            </Grid>
+        </Border>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type trend1:TrendConfigViewModel}">
+        <enums:TrendConfig />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type trend1:ParameterBrowserViewModel}">
+        <enums:ParameterBrowser />
+    </DataTemplate>
+</ResourceDictionary>

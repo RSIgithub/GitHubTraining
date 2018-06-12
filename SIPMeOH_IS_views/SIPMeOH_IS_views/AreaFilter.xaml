@@ -1,0 +1,13 @@
+﻿<RSISynoptic x:Class="RSI.DeltaV.HMI.AreaFilter"
+          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+          Background="LightGray"
+          Height="1048"
+          Width="1920"
+          mc:Ignorable="d">
+
+    <!--  Area Alarm Filter  -->
+    <ContentPresenter ContentTemplate="{DynamicResource AreaAlarmFilterDeltaV}" />
+</RSISynoptic>

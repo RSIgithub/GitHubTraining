@@ -1,0 +1,25 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:hmi="clr-namespace:SIPMeOH_IS_views.HMI"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity">
+
+    <Style TargetType="{x:Type hmi:RespectiveProcHisView}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type hmi:RespectiveProcHisView}">
+                    <Canvas
+                        Width="61"
+                        Height="34"
+                        Background="Transparent">
+                        <Image
+                            Name="bmpProcHistView"
+                            Width="60"
+                            Height="33"
+                            Source="..\GraphicViews\Translations\Images\SEA_COOLING_WATER_bmpProcHistView_0.png" />
+                    </Canvas>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

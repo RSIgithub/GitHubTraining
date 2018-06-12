@@ -1,0 +1,96 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:hmi="clr-namespace:SIPMeOH_IS_views.HMI"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity">
+
+    <Style TargetType="{x:Type hmi:Static_CtrlVlv}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type hmi:Static_CtrlVlv}">
+                    <Canvas
+                        Width="110"
+                        Height="48"
+                        Background="Transparent">
+                        <Canvas
+                            Name="grpVlvBody10"
+                            Canvas.Left="29"
+                            Width="39"
+                            Height="32">
+                            <Path
+                                Name="Chord16"
+                                Fill="#FFFFE369"
+                                Stroke="#FF000000"
+                                StrokeDashArray=""
+                                StrokeEndLineCap="Round"
+                                StrokeLineJoin="Round"
+                                StrokeMiterLimit="10"
+                                StrokeStartLineCap="Round"
+                                StrokeThickness="1">
+                                <Path.Data>
+                                    <PathGeometry Figures="M2,9A19,14,0,0,1,38,9z" FillRule="EvenOdd" />
+                                </Path.Data>
+                            </Path>
+                            <Canvas
+                                Name="grpVlvSymbol10"
+                                Width="39"
+                                Height="32">
+                                <Canvas
+                                    Name="grpClosurePID10"
+                                    Width="39"
+                                    Height="32">
+                                    <Polygon
+                                        Name="polBody10"
+                                        Fill="#FF787878"
+                                        Points="0,19 0,32 40,19 40,32 40,32 40,32"
+                                        Stroke="#FF000000"
+                                        StrokeDashArray=""
+                                        StrokeEndLineCap="Round"
+                                        StrokeLineJoin="Round"
+                                        StrokeMiterLimit="10"
+                                        StrokeStartLineCap="Round"
+                                        StrokeThickness="1" />
+                                    <Path
+                                        Name="Chord17"
+                                        Fill="#FF787878"
+                                        Stroke="#FF000000"
+                                        StrokeDashArray=""
+                                        StrokeEndLineCap="Round"
+                                        StrokeLineJoin="Round"
+                                        StrokeMiterLimit="10"
+                                        StrokeStartLineCap="Round"
+                                        StrokeThickness="1">
+                                        <Path.Data>
+                                            <PathGeometry Figures="M2,9A19,14,0,0,1,38,9z" FillRule="EvenOdd" />
+                                        </Path.Data>
+                                    </Path>
+                                </Canvas>
+                                <Line
+                                    Fill="#FF787878"
+                                    Stroke="#FF000000"
+                                    StrokeDashArray=""
+                                    StrokeEndLineCap="Round"
+                                    StrokeLineJoin="Round"
+                                    StrokeMiterLimit="10"
+                                    StrokeStartLineCap="Round"
+                                    StrokeThickness="1"
+                                    X1="20"
+                                    X2="20"
+                                    Y1="25"
+                                    Y2="9" />
+                            </Canvas>
+                        </Canvas>
+                        <TextBlock
+                            Canvas.Left="14.4102968750001"
+                            Canvas.Top="32.0966666666667"
+                            FontFamily="Arial"
+                            FontSize="14"
+                            FontWeight="Normal"
+                            Foreground="#FF000000"
+                            Text="10PCV12701    " />
+                    </Canvas>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

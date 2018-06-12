@@ -1,0 +1,70 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:hmi="clr-namespace:SIPMeOH_IS_views.HMI"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity">
+
+    <Style TargetType="{x:Type hmi:Groupv1}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type hmi:Groupv1}">
+                    <Canvas
+                        Width="555"
+                        Height="19"
+                        Background="Transparent">
+                        <Canvas
+                            Name="AnalogLink_TT62"
+                            Width="200"
+                            Height="19">
+                            <Canvas
+                                Name="grpData62"
+                                Canvas.Left="97"
+                                Width="96"
+                                Height="19">
+                                <Rectangle
+                                    Name="rctData62"
+                                    Width="96"
+                                    Height="19"
+                                    Fill="#FF525252"
+                                    RadiusX="0"
+                                    RadiusY="0"
+                                    Stroke="{x:Null}"
+                                    StrokeThickness="0" />
+                                <TextBlock
+                                    Canvas.Left="69"
+                                    Canvas.Top="2.09666666666669"
+                                    FontFamily="Arial"
+                                    FontSize="14"
+                                    FontWeight="Normal"
+                                    Foreground="#FF00FF00"
+                                    Text="%      " />
+                            </Canvas>
+                            <Image
+                                Name="Bitmap62"
+                                Canvas.Left="186"
+                                Canvas.Top="5"
+                                Width="15"
+                                Height="11"
+                                Source="..\GraphicViews\Translations\Images\DCS_MASS_SPEC_Bitmap62_0.png" />
+                            <TextBlock
+                                Canvas.Top="1.09666666666669"
+                                FontFamily="Arial"
+                                FontSize="14"
+                                FontWeight="Normal"
+                                Foreground="#FF000000"
+                                Text="10AI19002     " />
+                        </Canvas>
+                        <TextBlock
+                            Canvas.Left="245"
+                            Canvas.Top="3.17666666666662"
+                            FontFamily="Arial"
+                            FontSize="15"
+                            FontWeight="Bold"
+                            Foreground="#FF000000"
+                            Text="Methane in SG&amp; RX (there is A&amp;B)    " />
+                    </Canvas>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

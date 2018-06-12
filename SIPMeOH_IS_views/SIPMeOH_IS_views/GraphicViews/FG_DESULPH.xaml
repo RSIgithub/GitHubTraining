@@ -1,0 +1,35 @@
+<UserControl x:Class="SIPMeOH_IS_views.FG_DESULPH" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"  
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"  
+             xmlns:local="clr-namespace:SIPMeOH_IS_views" 
+             mc:Ignorable="d"> 
+	<Grid>
+		<!--  Graphic Part  -->
+		<local:FG_DESULPH_Translation x:Name="GRAPHIC" d:IsLocked="True"  />
+
+		<!-- Normal Graphic Layer Path -->
+		<Canvas x:Name="GRAPHIC_OVERLAY">
+		</Canvas>
+
+		<!-- FOD Part -->
+		<Canvas x:Name='FOD' Visibility="{FODBinding}">
+		<!-- Start FOD -->
+		<!-- Stop FOD -->
+		</Canvas>
+
+		<!-- BL Part -->
+		<Canvas x:Name='BL' Visibility='{BLBinding}' >
+		<!-- Start BL -->
+		<!-- Stop BL -->
+		</Canvas>
+
+		<!-- FAILURE Part -->
+		<Canvas x:Name='FAILURE' Visibility='{FAILUREBinding}' >
+		<!-- Start FAILURE -->
+		<!-- Stop FAILURE -->
+		</Canvas>
+
+	</Grid>
+</UserControl>

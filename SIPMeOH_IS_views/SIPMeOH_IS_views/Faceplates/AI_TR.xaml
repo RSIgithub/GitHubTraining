@@ -1,0 +1,50 @@
+﻿<RSIFacePlate
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+    Title="AI Trends"
+    Background="LightGray"
+	x:Class="SIPMeOH_IS_views.Faceplates.AI_TR">
+    <!--  Copy/Paste this grid content in order to create a custom Faceplate  -->
+    <RSIGrid Background="LightGray" Margin="5" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!--  Header  -->
+        <DeltaV_Title x:Name="HeaderPart" />
+
+        <!--  Trends Part  -->
+        <RSIGrid x:Name="TrendPart" Grid.Row="2">
+
+            <!--  Trends  -->
+            <DeltaV_Trend >
+                <DeltaV_Trend.Parameters>
+                    <Param Name="$CHANELVALUE1" Value="$TAGNAME.PV"/>
+                    <Param Name="$CHANELCOLOR1" Value="Yellow"/>
+                </DeltaV_Trend.Parameters>
+            </DeltaV_Trend>
+
+            <!--  Trends Text  -->
+            <TextBlock VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       FontFamily="Arial"
+                       FontWeight="Bold"
+                       Foreground="#FFFFFF"
+                       Text="Trends">
+                <TextBlock.Effect>
+                    <DropShadowEffect BlurRadius="0"
+                                          Direction="-24"
+                                          Opacity="1"
+                                          ShadowDepth="2"
+                                          Color="Black" />
+                </TextBlock.Effect>
+            </TextBlock>
+
+        </RSIGrid>
+    </RSIGrid>
+</RSIFacePlate>

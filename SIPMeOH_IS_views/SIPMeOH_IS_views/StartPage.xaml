@@ -1,0 +1,31 @@
+﻿<RSIMimic x:Class="SIPMeOH_IS_views.StartPage"
+          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+          mc:Ignorable="d">
+    <Border HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                BorderBrush="Black"
+                BorderThickness="4"
+                Padding="20">
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Offset="0.5" Color="#FFFFDFA3" />
+                <GradientStop Offset="1" Color="#FFFFA702" />
+                <GradientStop Offset="0.009" Color="#FFFFA702" />
+            </LinearGradientBrush>
+        </Border.Background>
+        <StackPanel VerticalAlignment="Center">
+            <TextBlock HorizontalAlignment="Center"
+                           FontSize="33"
+                           Text="DeltaV Graphic project" />
+            <TextBlock Margin="0,20,0,0" Text="To continue :" />
+            <StackPanel Margin="10,0,0,0">
+                <TextBlock Margin="0,10,0,0" Text="1. Press Ctrl + Shift + D" />
+                <TextBlock Margin="0,10,0,0" Text="2. Press F8" />
+                <TextBlock Margin="0,10,0,0" Text="3. Menu DeltaV/Translate" />
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</RSIMimic>

@@ -1,0 +1,21 @@
+﻿<core:CoreApplication
+    x:Class="SIPMeOH_IS_views.BootStrap.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:core="clr-namespace:RSI.WPFApplication.Core;assembly=RSI.WPFApplication.Core"
+    SplashScreenName="Resources/splashscreen.png">
+
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/RSI.Emulation.Controls;component/Resources.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/RSI.DeltaV.Core;component/Resources.xaml" />
+                <ResourceDictionary Source="/SIPMeOH_IS_views;component/BootStrap/ProcessHistoryView/Trend/Controls/TrendColor.xaml" />
+                <ResourceDictionary Source="ProjectStyles.xaml" />
+                <ResourceDictionary Source="../TOC.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</core:CoreApplication>

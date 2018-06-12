@@ -1,0 +1,18 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity">
+    <DataTemplate x:Key="TOC">
+        <TreeView>
+            
+            <TreeViewItem Header="FG_DESULPH">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseUp">
+                        <LinkTriggerAction WindowName="FG_DESULPH" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TreeViewItem>
+            
+        </TreeView>
+    </DataTemplate>
+</ResourceDictionary>

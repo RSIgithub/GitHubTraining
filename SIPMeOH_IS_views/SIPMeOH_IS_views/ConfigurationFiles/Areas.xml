@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AreaService xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Areas>
+    <Area Name="Area1">
+      <Tags>
+        <Tag Name="T_4205" />
+        <Tag Name="L_4402" />
+        <Tag Name="T_4417" />
+      </Tags>
+    </Area>
+    <Area Name="Area2">
+      <Tags>
+        <Tag Name="XL_4402A" />
+      </Tags>
+    </Area>
+    <Area Name="Area3">
+      <Tags>
+        <Tag Name="T_4406" />
+        <Tag Name="TAL_4410" />
+        <Tag Name="T_4405" />
+        <Tag Name="PAHH_4401" />
+      </Tags>
+    </Area>
+  </Areas>
+</AreaService>

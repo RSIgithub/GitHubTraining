@@ -1,0 +1,138 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:hmi="clr-namespace:SIPMeOH_IS_views.HMI"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity">
+
+    <Style TargetType="{x:Type hmi:ManLoad_H_TR}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type hmi:ManLoad_H_TR}">
+                    <Canvas
+                        Width="109"
+                        Height="61"
+                        Background="Transparent">
+                        <Canvas
+                            Name="grpVlvInd13"
+                            Canvas.Left="12"
+                            Canvas.Top="13"
+                            Width="67"
+                            Height="17">
+                            <Rectangle
+                                Name="rctCenter13"
+                                Canvas.Top="2"
+                                Width="66"
+                                Height="14"
+                                Fill="#FF525252"
+                                RadiusX="0"
+                                RadiusY="0"
+                                Stroke="#FF000000"
+                                StrokeThickness="0" />
+                            <TextBlock
+                                Canvas.Left="44"
+                                Canvas.Top="0.096666666666664"
+                                FontFamily="Arial"
+                                FontSize="14"
+                                FontWeight="Normal"
+                                Foreground="#FF00FFFF"
+                                Text="%     " />
+                        </Canvas>
+                        <Canvas
+                            Name="grpVlvBody13"
+                            Canvas.Left="65"
+                            Canvas.Top="31"
+                            Width="43"
+                            Height="29">
+                            <Canvas
+                                Name="grpVlvSymbol13"
+                                Width="43"
+                                Height="29">
+                                <Canvas
+                                    Name="grpClosurePID13"
+                                    Width="43"
+                                    Height="29">
+                                    <Polygon
+                                        Name="polBody13"
+                                        Fill="#FF787878"
+                                        Points="26,29 44,29 26,0 44,0 44,0 44,0"
+                                        Stroke="#FF000000"
+                                        StrokeDashArray=""
+                                        StrokeEndLineCap="Round"
+                                        StrokeLineJoin="Round"
+                                        StrokeMiterLimit="10"
+                                        StrokeStartLineCap="Round"
+                                        StrokeThickness="1" />
+                                    <Path
+                                        Name="Chord14"
+                                        Fill="#FF787878"
+                                        Stroke="#FF000000"
+                                        StrokeDashArray=""
+                                        StrokeEndLineCap="Round"
+                                        StrokeLineJoin="Round"
+                                        StrokeMiterLimit="10"
+                                        StrokeStartLineCap="Round"
+                                        StrokeThickness="1">
+                                        <Path.Data>
+                                            <PathGeometry Figures="M13,27A19,14,0,0,1,13,1z" FillRule="EvenOdd" />
+                                        </Path.Data>
+                                    </Path>
+                                </Canvas>
+                                <Line
+                                    Fill="#FF787878"
+                                    Stroke="#FF000000"
+                                    StrokeDashArray=""
+                                    StrokeEndLineCap="Round"
+                                    StrokeLineJoin="Round"
+                                    StrokeMiterLimit="10"
+                                    StrokeStartLineCap="Round"
+                                    StrokeThickness="1"
+                                    X1="34"
+                                    X2="13"
+                                    Y1="14"
+                                    Y2="14" />
+                            </Canvas>
+                        </Canvas>
+                        <TextBlock
+                            Canvas.Top="0.096666666666664"
+                            FontFamily="Arial"
+                            FontSize="14"
+                            FontWeight="Normal"
+                            Foreground="#FF000000"
+                            Text="10HV14210    " />
+                        <Canvas
+                            Name="grpInterlock13"
+                            Canvas.Left="46"
+                            Canvas.Top="32"
+                            Width="13"
+                            Height="15">
+                            <Rectangle
+                                Name="Rect153"
+                                Canvas.Left="-0.5"
+                                Canvas.Top="0.5"
+                                Width="14"
+                                Height="14"
+                                Fill="#FFFFFF00"
+                                RadiusX="0"
+                                RadiusY="0"
+                                Stroke="#FF000000"
+                                StrokeDashArray=""
+                                StrokeEndLineCap="Round"
+                                StrokeLineJoin="Round"
+                                StrokeMiterLimit="10"
+                                StrokeStartLineCap="Round"
+                                StrokeThickness="1" />
+                            <TextBlock
+                                Canvas.Left="3"
+                                Canvas.Top="1.84333333333333"
+                                FontFamily="Courier New"
+                                FontSize="11"
+                                FontWeight="Bold"
+                                Foreground="#FFFF0000"
+                                Text="I     " />
+                        </Canvas>
+                    </Canvas>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
